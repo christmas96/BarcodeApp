@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BarcodeApp.View.MainView">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center">
+            <StackLayout Orientation="Horizontal">
+                <Label 
+                Text="Product name:"
+                FontSize="Large"
+                HorizontalOptions="Center" />
+                <Label 
+                Text="{Binding ProductName}"
+                FontSize="Large"
+                HorizontalOptions="Center" />
+            </StackLayout>
+            <Image
+                Source="{Binding ProductImage}"
+                Aspect="AspectFill"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

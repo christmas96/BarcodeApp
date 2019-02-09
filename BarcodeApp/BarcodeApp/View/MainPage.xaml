@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:BarcodeApp"
+             x:Class="BarcodeApp.MainPage"
+             Title="List of all products">
+
+    <StackLayout>
+        <ScrollView VerticalOptions="Start">
+            <ListView
+                RowHeight="70"
+                IsPullToRefreshEnabled="True"
+                ItemsSource="{Binding ListOfProducts}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout 
+                                BackgroundColor="#eee"
+                                Orientation="Vertical"
+                                Spacing="0">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="65"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="35"/>
+                                        <RowDefinition Height="35"/>
+                                    </Grid.RowDefinitions>
+                                    <Image 
+                                        Grid.Column="0"
+                                        Grid.RowSpan="2"
+                                        HeightRequest="68"
+                                        WidthRequest="65"
+                                        Margin="2,1,2,1"
+                                        Source="{Binding Image}"
+                                        Aspect="AspectFit"/>
+                                    <Label 
+                                        Grid.Column="1"
+                                        Grid.Row="0"
+                                        Text="Product name:"
+                                        VerticalTextAlignment="Start"/>
+                                    <Label 
+                                        Grid.Column="1"
+                                        Grid.Row="0"
+                                        VerticalTextAlignment="End"
+                                        Text="{Binding Name}"/>
+                                    <StackLayout 
+                                        Grid.Column="1"
+                                        Grid.Row="1"
+                                        Orientation="Horizontal">
+                                        <Label Text="Barcode:"/>
+                                        <Label Text="{Binding Code}" />
+                                    </StackLayout>
+                                    
+                                </Grid>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+        <Button
+            Text="{Binding ButtonText}"
+            Margin="10"
+            HorizontalOptions="Center"
+            VerticalOptions="End"
+            BackgroundColor="LightBlue"
+            CornerRadius="2"
+            WidthRequest="250"
+            Command="{Binding ButtonCommand}"/>
+    </StackLayout>
+
+</ContentPage>
